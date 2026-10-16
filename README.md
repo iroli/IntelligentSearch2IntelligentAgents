@@ -26,7 +26,7 @@ python3 -m notebook                  # Jupyter, открыть блокнот н
 lecture_1/  slides_L1.pdf  demo_lecture1.ipynb  data/  paper/
 lecture_2/  slides_L2.pdf  demo_lecture2.ipynb  data/  paper/
 lecture_3/  slides_P1.pdf  slides_P1_tools.pdf  practice_1_editor.ipynb  practice_2_ontology.ipynb
-            practice_3_tasks.ipynb  agent/  data/  starter/  ВЫПОЛНЕНИЕ_заданий.md  README.md
+            practice_3_tasks.ipynb  agent/  data/  starter/  README.md
 ```
 
-Статья недели к каждой лекции лежит в её папке `paper/` с указанием разделов для чтения. Задания 1 и 2 описаны в `lecture_3/ВЫПОЛНЕНИЕ_заданий.md`, образец выполненных заданий в `lecture_3/starter/`.
+Статья недели к каждой лекции лежит в её папке `paper/` с указанием разделов для чтения. Задание 1 описано в `lecture_1/README.md`, задание 2 в `lecture_2/README.md`, образец выполненных заданий в `lecture_3/starter/`.
