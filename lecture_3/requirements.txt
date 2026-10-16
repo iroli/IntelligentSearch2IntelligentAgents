@@ -1,0 +1,11 @@
+# Практикум 1. Python 3.8+. Установка: pip install -r requirements.txt
+pandas
+rdflib
+owlready2==0.46      # проверена с Java 8–24. Версия 0.51 несёт Pellet, собранный под Java 25
+pyshacl
+numpy
+networkx
+matplotlib
+nbformat
+notebook
+openai

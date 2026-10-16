@@ -1,0 +1,7 @@
+# Производная модель для мини-агента: qwen2.5 с длинным контекстом и нулевой температурой.
+# Сначала скачать базовую модель (один раз, около 2 ГБ):  ollama pull qwen2.5:3b
+# Затем собрать производную, без скачивания:              ollama create qwen-agent -f Modelfile
+# Если памяти хватает (8 ГБ и больше), лучше qwen2.5:7b: ollama pull qwen2.5:7b и FROM qwen2.5:7b
+FROM qwen2.5:3b
+PARAMETER num_ctx 8192
+PARAMETER temperature 0

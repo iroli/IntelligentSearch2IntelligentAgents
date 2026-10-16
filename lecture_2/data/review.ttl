@@ -1,0 +1,629 @@
+@prefix : <http://example.org/review.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/review.owl> a owl:Ontology .
+
+:R51 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "5.1 Объём статьи"@ru ;
+    :зависит_от :S05,
+        :T01 ;
+    :источник "Положение о статьях §5.1"^^xsd:string .
+
+:R52 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "5.2 Аннотация"@ru ;
+    :зависит_от :S05,
+        :T02 ;
+    :источник "Положение о статьях §5.2"^^xsd:string .
+
+:R53 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "5.3 Ключевые слова"@ru ;
+    :зависит_от :S05,
+        :T03 ;
+    :источник "Положение о статьях §5.3"^^xsd:string .
+
+:R54 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "5.4 Список литературы"@ru ;
+    :зависит_от :S02,
+        :S05 ;
+    :источник "Положение о статьях §5.4"^^xsd:string .
+
+:R66 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "6.6 Срок рецензирования"@ru ;
+    :зависит_от :S06,
+        :T06 ;
+    :источник "Положение о статьях §6.6"^^xsd:string .
+
+:R81 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "8.1 Конфликт интересов"@ru ;
+    :зависит_от :R62,
+        :S08,
+        :T04 ;
+    :источник "Положение о статьях §8.1"^^xsd:string .
+
+:R83 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "8.3 Ответственность за содержание"@ru ;
+    :зависит_от :R82,
+        :S08,
+        :T04 ;
+    :источник "Положение о статьях §8.3"^^xsd:string .
+
+:R91 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "9.1 Повторная подача"@ru ;
+    :зависит_от :R65,
+        :S01,
+        :T10 ;
+    :источник "Положение о статьях §9.1"^^xsd:string .
+
+:БазовоеПоложение a owl:Class ;
+    rdfs:subClassOf :Положение ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Положение [ a owl:Class ;
+                        owl:complementOf [ a owl:Restriction ;
+                                owl:onProperty :зависит_от ;
+                                owl:someValuesFrom :Положение ] ] ) ] .
+
+:вердикт a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Доказательство ;
+    rdfs:range xsd:string .
+
+:источник a owl:DatatypeProperty ;
+    rdfs:domain :Положение ;
+    rdfs:range xsd:string .
+
+:назначено a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range xsd:date .
+
+:ответ_авторов a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range xsd:boolean .
+
+:оценка a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range xsd:decimal .
+
+:рец_P1_Rv1 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P1 ;
+    :назначено "2026-09-01"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 8.0 ;
+    :рецензент :Rv1 ;
+    :сдано "2026-09-15"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P1_Rv2 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P1 ;
+    :назначено "2026-09-01"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 7.0 ;
+    :рецензент :Rv2 ;
+    :сдано "2026-09-18"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P2_Rv1 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P2 ;
+    :назначено "2026-09-01"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 9.0 ;
+    :рецензент :Rv1 ;
+    :сдано "2026-09-20"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P2_Rv3 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P2 ;
+    :назначено "2026-09-01"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 4.0 ;
+    :рецензент :Rv3 ;
+    :сдано "2026-09-12"^^xsd:date ;
+    :шкала 5 .
+
+:рец_P3_Rv2 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P3 ;
+    :назначено "2026-09-02"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 6.0 ;
+    :рецензент :Rv2 ;
+    :сдано "2026-09-19"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P3_Rv4 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P3 ;
+    :назначено "2026-09-02"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 9.0 ;
+    :рецензент :Rv4 ;
+    :сдано "2026-09-16"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P4_Rv5 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P4 ;
+    :назначено "2026-09-02"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 8.0 ;
+    :рецензент :Rv5 ;
+    :сдано "2026-09-14"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P5_Rv3 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P5 ;
+    :назначено "2026-09-03"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 7.0 ;
+    :рецензент :Rv3 ;
+    :сдано "2026-09-30"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P5_Rv6 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P5 ;
+    :назначено "2026-09-03"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 6.0 ;
+    :рецензент :Rv6 ;
+    :сдано "2026-09-17"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P6_Rv4 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P6 ;
+    :назначено "2026-09-03"^^xsd:date ;
+    :ответ_авторов false ;
+    :оценка 3.0 ;
+    :рецензент :Rv4 ;
+    :сдано "2026-09-15"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P6_Rv5 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P6 ;
+    :назначено "2026-09-03"^^xsd:date ;
+    :ответ_авторов false ;
+    :оценка 5.0 ;
+    :рецензент :Rv5 ;
+    :сдано "2026-09-16"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P7_Rv2 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P7 ;
+    :назначено "2026-09-04"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 8.0 ;
+    :рецензент :Rv2 ;
+    :сдано "2026-09-20"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P7_Rv6 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P7 ;
+    :назначено "2026-09-04"^^xsd:date ;
+    :ответ_авторов true ;
+    :оценка 9.0 ;
+    :рецензент :Rv6 ;
+    :сдано "2026-09-18"^^xsd:date ;
+    :шкала 10 .
+
+:рец_P8_Rv5 a :Рецензия,
+        owl:NamedIndividual ;
+    :на_статью :P8 ;
+    :назначено "2026-09-04"^^xsd:date ;
+    :рецензент :Rv5 .
+
+:сдано a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range xsd:date .
+
+:содержит_утверждение a owl:ObjectProperty ;
+    rdfs:domain :Статья ;
+    rdfs:range :Утверждение .
+
+:шкала a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range xsd:integer .
+
+:C1 a :Утверждение,
+        owl:NamedIndividual ;
+    rdfs:label "В прямоугольном треугольнике медиана проведённая к гипотенузе равна её половине"@ru ;
+    :доказывается :Док_C1 .
+
+:C2 a :Утверждение,
+        owl:NamedIndividual ;
+    rdfs:label "Высота к гипотенузе равна произведению катетов делённому на гипотенузу"@ru ;
+    :доказывается :Док_C2 .
+
+:C3 a :Утверждение,
+        owl:NamedIndividual ;
+    rdfs:label "В любом треугольнике медиана к стороне равна её половине"@ru ;
+    :доказывается :Док_C3 .
+
+:P4 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :ИТМО .
+
+:P8 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :ФИЦ_ИУ .
+
+:R61 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "6.1 Число рецензий"@ru ;
+    :зависит_от :S06,
+        :T01,
+        :T05 ;
+    :источник "Положение о статьях §6.1"^^xsd:string .
+
+:R63 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "6.3 Содержание рецензии"@ru ;
+    :зависит_от :S06,
+        :T06,
+        :T07 ;
+    :источник "Положение о статьях §6.3"^^xsd:string .
+
+:R64 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "6.4 Ответ на замечания"@ru ;
+    :зависит_от :R63,
+        :S06,
+        :T08 ;
+    :источник "Положение о статьях §6.4"^^xsd:string .
+
+:R65 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "6.5 Принятие решения"@ru ;
+    :зависит_от :R61,
+        :R64,
+        :S06,
+        :T10 ;
+    :источник "Положение о статьях §6.5"^^xsd:string .
+
+:R82 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "8.2 Использование ИИ-инструментов"@ru ;
+    :зависит_от :S08,
+        :T01,
+        :T11 ;
+    :источник "Положение о статьях §8.2"^^xsd:string .
+
+:S02 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 2. Нормативные ссылки"@ru ;
+    :источник "Положение о статьях §2"^^xsd:string .
+
+:T02 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Аннотация"@ru ;
+    :зависит_от :S03,
+        :T01 ;
+    :источник "Положение о статьях §3.2"^^xsd:string .
+
+:T03 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Ключевые слова"@ru ;
+    :зависит_от :S03,
+        :T01 ;
+    :источник "Положение о статьях §3.3"^^xsd:string .
+
+:T08 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Ответ авторов"@ru ;
+    :зависит_от :S03,
+        :T04,
+        :T07 ;
+    :источник "Положение о статьях §3.8"^^xsd:string .
+
+:T11 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "ИИ-инструмент"@ru ;
+    :зависит_от :S03 ;
+    :источник "Положение о статьях §3.11"^^xsd:string .
+
+:Док_C1 a :Доказательство,
+        owl:NamedIndividual ;
+    :вердикт "принято"^^xsd:string .
+
+:Док_C2 a :Доказательство,
+        owl:NamedIndividual ;
+    :вердикт "принято"^^xsd:string .
+
+:Док_C3 a :Доказательство,
+        owl:NamedIndividual ;
+    :вердикт "отклонено"^^xsd:string .
+
+:доказывает a owl:ObjectProperty ;
+    owl:inverseOf :доказывается .
+
+:из_организации a owl:ObjectProperty ;
+    rdfs:domain :Рецензент ;
+    rdfs:range :Организация .
+
+:имеет_рецензию a owl:ObjectProperty ;
+    owl:inverseOf :на_статью .
+
+:нарушает a owl:ObjectProperty ;
+    rdfs:domain :Статья ;
+    rdfs:range :Требование .
+
+:организация_авторов a owl:ObjectProperty ;
+    rdfs:domain :Статья ;
+    rdfs:range :Организация .
+
+:P1 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :МГУ .
+
+:P2 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :МФТИ ;
+    :содержит_утверждение :C1,
+        :C2,
+        :C3 .
+
+:P3 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :ФИЦ_ИУ .
+
+:P5 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :МГУ .
+
+:P6 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :МФТИ .
+
+:P7 a :Статья,
+        owl:NamedIndividual ;
+    :организация_авторов :ИТМО .
+
+:R62 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "6.2 Независимость рецензента"@ru ;
+    :зависит_от :S06,
+        :T04,
+        :T05 ;
+    :источник "Положение о статьях §6.2"^^xsd:string .
+
+:Rv1 a :Рецензент,
+        owl:NamedIndividual ;
+    :из_организации :ФИЦ_ИУ .
+
+:Rv3 a :Рецензент,
+        owl:NamedIndividual ;
+    :из_организации :ИТМО .
+
+:Rv4 a :Рецензент,
+        owl:NamedIndividual ;
+    :из_организации :ФИЦ_ИУ .
+
+:Rv6 a :Рецензент,
+        owl:NamedIndividual ;
+    :из_организации :МФТИ .
+
+:T07 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Замечание"@ru ;
+    :зависит_от :S03,
+        :T06 ;
+    :источник "Положение о статьях §3.7"^^xsd:string .
+
+:T09 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Редакционная коллегия"@ru ;
+    :зависит_от :S03 ;
+    :источник "Положение о статьях §3.9"^^xsd:string .
+
+:T10 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Решение"@ru ;
+    :зависит_от :S03,
+        :T09 ;
+    :источник "Положение о статьях §3.10"^^xsd:string .
+
+:доказывается a owl:ObjectProperty ;
+    rdfs:domain :Утверждение ;
+    rdfs:range :Доказательство ;
+    owl:inverseOf :доказывает .
+
+:зависит_от a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain :Положение ;
+    rdfs:range :Положение .
+
+:рецензент a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range :Рецензент .
+
+<urn:swrl#o> a swrl:Variable .
+
+<urn:swrl#p> a swrl:Variable .
+
+:Rv2 a :Рецензент,
+        owl:NamedIndividual ;
+    :из_организации :МФТИ .
+
+:Rv5 a :Рецензент,
+        owl:NamedIndividual ;
+    :из_организации :МГУ .
+
+:S08 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 8. Этика и ответственность"@ru ;
+    :зависит_от :S01,
+        :S03 ;
+    :источник "Положение о статьях §8"^^xsd:string .
+
+:T05 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Рецензент"@ru ;
+    :зависит_от :S03,
+        :T09 ;
+    :источник "Положение о статьях §3.5"^^xsd:string .
+
+:ИТМО a :Организация,
+        owl:NamedIndividual .
+
+:МГУ a :Организация,
+        owl:NamedIndividual .
+
+:на_статью a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Рецензия ;
+    rdfs:range :Статья ;
+    owl:inverseOf :имеет_рецензию .
+
+<urn:swrl#r> a swrl:Variable .
+
+<urn:swrl#s> a swrl:Variable .
+
+:S05 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 5. Требования к оформлению статьи"@ru ;
+    :зависит_от :S01,
+        :S03 ;
+    :источник "Положение о статьях §5"^^xsd:string .
+
+:T04 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Автор"@ru ;
+    :зависит_от :S03,
+        :T01 ;
+    :источник "Положение о статьях §3.4"^^xsd:string .
+
+:T06 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Рецензия"@ru ;
+    :зависит_от :S03,
+        :T05 ;
+    :источник "Положение о статьях §3.6"^^xsd:string .
+
+:МФТИ a :Организация,
+        owl:NamedIndividual .
+
+:ФИЦ_ИУ a :Организация,
+        owl:NamedIndividual .
+
+:S01 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 1. Область применения"@ru ;
+    :источник "Положение о статьях §1"^^xsd:string .
+
+:S06 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 6. Порядок рецензирования"@ru ;
+    :зависит_от :S01,
+        :S03 ;
+    :источник "Положение о статьях §6"^^xsd:string .
+
+:T01 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Статья"@ru ;
+    :зависит_от :S03 ;
+    :источник "Положение о статьях §3.1"^^xsd:string .
+
+:Утверждение a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :доказывается ;
+            owl:someValuesFrom :Доказательство ],
+        :Объект .
+
+:Доказательство a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Объект a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+:Организация a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Раздел a owl:Class ;
+    rdfs:subClassOf :Положение .
+
+:Положение a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Рецензент a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Термин a owl:Class ;
+    rdfs:subClassOf :Положение .
+
+:S03 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 3. Термины и определения"@ru ;
+    :зависит_от :S01 ;
+    :источник "Положение о статьях §3"^^xsd:string .
+
+:Статья a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Требование a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :зависит_от ;
+            owl:someValuesFrom :Раздел ],
+        :Положение .
+
+:Рецензия a owl:Class ;
+    rdfs:isDefinedBy :T06 ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :на_статью ;
+            owl:someValuesFrom :Статья ],
+        [ a owl:Restriction ;
+            owl:onProperty :рецензент ;
+            owl:someValuesFrom :Рецензент ],
+        :Объект .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Раздел :Термин :Требование ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Положение :Статья :Рецензия :Рецензент :Организация :Утверждение :Доказательство ) .
+
+[] a swrl:Imp ;
+    swrl:body ( [ a swrl:ClassAtom ;
+                swrl:argument1 <urn:swrl#r> ;
+                swrl:classPredicate :Рецензия ] [ a swrl:IndividualPropertyAtom ;
+                swrl:argument1 <urn:swrl#r> ;
+                swrl:argument2 <urn:swrl#s> ;
+                swrl:propertyPredicate :на_статью ] [ a swrl:IndividualPropertyAtom ;
+                swrl:argument1 <urn:swrl#r> ;
+                swrl:argument2 <urn:swrl#p> ;
+                swrl:propertyPredicate :рецензент ] [ a swrl:IndividualPropertyAtom ;
+                swrl:argument1 <urn:swrl#p> ;
+                swrl:argument2 <urn:swrl#o> ;
+                swrl:propertyPredicate :из_организации ] [ a swrl:IndividualPropertyAtom ;
+                swrl:argument1 <urn:swrl#s> ;
+                swrl:argument2 <urn:swrl#o> ;
+                swrl:propertyPredicate :организация_авторов ] ) ;
+    swrl:head ( [ a swrl:IndividualPropertyAtom ;
+                swrl:argument1 <urn:swrl#s> ;
+                swrl:argument2 :R62 ;
+                swrl:propertyPredicate :нарушает ] ) .
+

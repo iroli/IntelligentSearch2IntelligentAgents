@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/zachet.owl"
+         xmlns="http://example.org/zachet.owl#">
+
+<owl:Ontology rdf:about="http://example.org/zachet.owl"/>
+
+<owl:ObjectProperty rdf:about="#зависит_от">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Положение"/>
+  <rdfs:range rdf:resource="#Положение"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#автор">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Сдача"/>
+  <rdfs:range rdf:resource="#Студент"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#балл">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Сдача"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Объект">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Положение">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Раздел">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Термин">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Требование">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#зависит_от"/>
+      <owl:someValuesFrom rdf:resource="#Раздел"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Студент">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Сдача">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#автор"/>
+      <owl:someValuesFrom rdf:resource="#Студент"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#S1">
+  <rdf:type rdf:resource="#Раздел"/>
+  <rdfs:label xml:lang="ru">Раздел 1. Общие положения</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S2">
+  <rdf:type rdf:resource="#Раздел"/>
+  <зависит_от rdf:resource="#S1"/>
+  <rdfs:label xml:lang="ru">Раздел 2. Термины</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S3">
+  <rdf:type rdf:resource="#Раздел"/>
+  <зависит_от rdf:resource="#S1"/>
+  <rdfs:label xml:lang="ru">Раздел 3. Порядок зачёта</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T1">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S2"/>
+  <rdfs:label xml:lang="ru">Студент</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T2">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S2"/>
+  <rdfs:label xml:lang="ru">Задание</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T3">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#T2"/>
+  <зависит_от rdf:resource="#S2"/>
+  <rdfs:label xml:lang="ru">Срок сдачи</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T4">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#T2"/>
+  <зависит_от rdf:resource="#S2"/>
+  <rdfs:label xml:lang="ru">Балл</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T5">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S2"/>
+  <зависит_от rdf:resource="#T4"/>
+  <rdfs:label xml:lang="ru">Зачёт</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R31">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S3"/>
+  <зависит_от rdf:resource="#T2"/>
+  <зависит_от rdf:resource="#T1"/>
+  <rdfs:label xml:lang="ru">3.1 Число заданий</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R32">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S3"/>
+  <зависит_от rdf:resource="#T3"/>
+  <rdfs:label xml:lang="ru">3.2 Срок</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R33">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S3"/>
+  <зависит_от rdf:resource="#T4"/>
+  <зависит_от rdf:resource="#R31"/>
+  <rdfs:label xml:lang="ru">3.3 Сумма баллов</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R34">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S3"/>
+  <зависит_от rdf:resource="#T5"/>
+  <зависит_от rdf:resource="#R32"/>
+  <зависит_от rdf:resource="#R33"/>
+  <зависит_от rdf:resource="#R31"/>
+  <rdfs:label xml:lang="ru">3.4 Выставление зачёта</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Аня">
+  <rdf:type rdf:resource="#Студент"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#сдача_Аня_зад1">
+  <rdf:type rdf:resource="#Сдача"/>
+  <автор rdf:resource="#Аня"/>
+  <балл rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</балл>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#сдача_Аня_зад2">
+  <rdf:type rdf:resource="#Сдача"/>
+  <автор rdf:resource="#Аня"/>
+  <балл rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</балл>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#сдача_Аня_зад3">
+  <rdf:type rdf:resource="#Сдача"/>
+  <автор rdf:resource="#Аня"/>
+  <балл rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</балл>
+</owl:NamedIndividual>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Положение"/>
+    <rdf:Description rdf:about="#Студент"/>
+    <rdf:Description rdf:about="#Сдача"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Раздел"/>
+    <rdf:Description rdf:about="#Термин"/>
+    <rdf:Description rdf:about="#Требование"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>

@@ -1,0 +1,145 @@
+@prefix : <http://example.org/zachet.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/zachet.owl> a owl:Ontology .
+
+:R34 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "3.4 Выставление зачёта"@ru ;
+    :зависит_от :R31,
+        :R32,
+        :R33,
+        :S3,
+        :T5 .
+
+:балл a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Сдача ;
+    rdfs:range xsd:integer .
+
+:сдача_Аня_зад1 a :Сдача,
+        owl:NamedIndividual ;
+    :автор :Аня ;
+    :балл 22 .
+
+:сдача_Аня_зад2 a :Сдача,
+        owl:NamedIndividual ;
+    :автор :Аня ;
+    :балл 20 .
+
+:сдача_Аня_зад3 a :Сдача,
+        owl:NamedIndividual ;
+    :автор :Аня ;
+    :балл 18 .
+
+:R32 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "3.2 Срок"@ru ;
+    :зависит_от :S3,
+        :T3 .
+
+:R33 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "3.3 Сумма баллов"@ru ;
+    :зависит_от :R31,
+        :S3,
+        :T4 .
+
+:T1 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Студент"@ru ;
+    :зависит_от :S2 .
+
+:T3 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Срок сдачи"@ru ;
+    :зависит_от :S2,
+        :T2 .
+
+:T5 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Зачёт"@ru ;
+    :зависит_от :S2,
+        :T4 .
+
+:автор a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Сдача ;
+    rdfs:range :Студент .
+
+:зависит_от a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain :Положение ;
+    rdfs:range :Положение .
+
+:R31 a :Требование,
+        owl:NamedIndividual ;
+    rdfs:label "3.1 Число заданий"@ru ;
+    :зависит_от :S3,
+        :T1,
+        :T2 .
+
+:S1 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 1. Общие положения"@ru .
+
+:T4 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Балл"@ru ;
+    :зависит_от :S2,
+        :T2 .
+
+:T2 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Задание"@ru ;
+    :зависит_от :S2 .
+
+:Аня a :Студент,
+        owl:NamedIndividual .
+
+:Объект a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+:S3 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 3. Порядок зачёта"@ru ;
+    :зависит_от :S1 .
+
+:Студент a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:S2 a :Раздел,
+        owl:NamedIndividual ;
+    rdfs:label "Раздел 2. Термины"@ru ;
+    :зависит_от :S1 .
+
+:Раздел a owl:Class ;
+    rdfs:subClassOf :Положение .
+
+:Требование a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :зависит_от ;
+            owl:someValuesFrom :Раздел ],
+        :Положение .
+
+:Положение a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Сдача a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :автор ;
+            owl:someValuesFrom :Студент ],
+        :Объект .
+
+:Термин a owl:Class ;
+    rdfs:subClassOf :Положение .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Положение :Студент :Сдача ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Раздел :Термин :Требование ) .
+
