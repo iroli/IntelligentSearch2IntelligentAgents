@@ -1,0 +1,321 @@
+@prefix : <http://example.org/zebra.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/zebra.owl> a owl:Ontology .
+
+:принадлежит a owl:ObjectProperty ;
+    owl:inverseOf :имеет .
+
+:Chesterfield a [ a owl:Restriction ;
+            owl:onProperty :курится ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:onProperty :живёт_в ;
+                    owl:someValuesFrom [ a owl:Class ;
+                            owl:unionOf ( [ a owl:Restriction ;
+                                        owl:onProperty :находится_справа_от ;
+                                        owl:someValuesFrom [ a owl:Restriction ;
+                                                owl:onProperty :обитаем ;
+                                                owl:someValuesFrom [ a owl:Restriction ;
+                                                        owl:hasValue :лиса ;
+                                                        owl:onProperty :имеет ] ] ] [ a owl:Restriction ;
+                                        owl:onProperty :находится_слева_от ;
+                                        owl:someValuesFrom [ a owl:Restriction ;
+                                                owl:onProperty :обитаем ;
+                                                owl:someValuesFrom [ a owl:Restriction ;
+                                                        owl:hasValue :лиса ;
+                                                        owl:onProperty :имеет ] ] ] ) ] ] ],
+        :Сигареты,
+        owl:NamedIndividual .
+
+:Kool a [ a owl:Restriction ;
+            owl:onProperty :курится ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:onProperty :живёт_в ;
+                    owl:someValuesFrom [ a owl:Restriction ;
+                            owl:hasValue :жёлтый ;
+                            owl:onProperty :имеет_цвет ] ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :курится ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:onProperty :живёт_в ;
+                    owl:someValuesFrom [ a owl:Class ;
+                            owl:unionOf ( [ a owl:Restriction ;
+                                        owl:onProperty :находится_справа_от ;
+                                        owl:someValuesFrom [ a owl:Restriction ;
+                                                owl:onProperty :обитаем ;
+                                                owl:someValuesFrom [ a owl:Restriction ;
+                                                        owl:hasValue :лошадь ;
+                                                        owl:onProperty :имеет ] ] ] [ a owl:Restriction ;
+                                        owl:onProperty :находится_слева_от ;
+                                        owl:someValuesFrom [ a owl:Restriction ;
+                                                owl:onProperty :обитаем ;
+                                                owl:someValuesFrom [ a owl:Restriction ;
+                                                        owl:hasValue :лошадь ;
+                                                        owl:onProperty :имеет ] ] ] ) ] ] ],
+        :Сигареты,
+        owl:NamedIndividual .
+
+:LuckyStrike a [ a owl:Restriction ;
+            owl:onProperty :курится ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :апельсиновый_сок ;
+                    owl:onProperty :пьёт ] ],
+        :Сигареты,
+        owl:NamedIndividual .
+
+:OldGold a [ a owl:Restriction ;
+            owl:onProperty :курится ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :улитки ;
+                    owl:onProperty :имеет ] ],
+        :Сигареты,
+        owl:NamedIndividual .
+
+:англичанин a [ a owl:Restriction ;
+            owl:onProperty :живёт_в ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :красный ;
+                    owl:onProperty :имеет_цвет ] ],
+        :Человек,
+        owl:NamedIndividual .
+
+:вода a :Напиток,
+        owl:NamedIndividual .
+
+:дом5 a [ a owl:Restriction ;
+            owl:allValuesFrom owl:Nothing ;
+            owl:onProperty :находится_слева_от ],
+        :Дом,
+        owl:NamedIndividual ;
+    :находится_справа_от :дом4 .
+
+:зебра a :Животное,
+        owl:NamedIndividual .
+
+:испанец a :Человек,
+        owl:NamedIndividual ;
+    :имеет :собака .
+
+:кофе a [ a owl:Restriction ;
+            owl:onProperty :пьётся ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:onProperty :живёт_в ;
+                    owl:someValuesFrom [ a owl:Restriction ;
+                            owl:hasValue :зелёный ;
+                            owl:onProperty :имеет_цвет ] ] ],
+        :Напиток,
+        owl:NamedIndividual .
+
+:курит a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Человек ;
+    rdfs:range :Сигареты ;
+    owl:inverseOf :курится .
+
+:молоко a [ a owl:Restriction ;
+            owl:onProperty :пьётся ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :дом3 ;
+                    owl:onProperty :живёт_в ] ],
+        :Напиток,
+        owl:NamedIndividual .
+
+:норвежец a [ a owl:Restriction ;
+            owl:onProperty :живёт_в ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( [ a owl:Restriction ;
+                                owl:onProperty :находится_справа_от ;
+                                owl:someValuesFrom [ a owl:Restriction ;
+                                        owl:hasValue :синий ;
+                                        owl:onProperty :имеет_цвет ] ] [ a owl:Restriction ;
+                                owl:onProperty :находится_слева_от ;
+                                owl:someValuesFrom [ a owl:Restriction ;
+                                        owl:hasValue :синий ;
+                                        owl:onProperty :имеет_цвет ] ] ) ] ],
+        :Человек,
+        owl:NamedIndividual ;
+    :живёт_в :дом1 .
+
+:окрашивает a owl:ObjectProperty ;
+    owl:inverseOf :имеет_цвет .
+
+:украинец a :Человек,
+        owl:NamedIndividual ;
+    :пьёт :чай .
+
+:японец a :Человек,
+        owl:NamedIndividual ;
+    :курит :Parliament .
+
+:Parliament a :Сигареты,
+        owl:NamedIndividual .
+
+:апельсиновый_сок a :Напиток,
+        owl:NamedIndividual .
+
+:дом2 a :Дом,
+        owl:NamedIndividual ;
+    :находится_справа_от :дом1 .
+
+:дом4 a :Дом,
+        owl:NamedIndividual ;
+    :находится_справа_от :дом3 .
+
+:жёлтый a :Цвет,
+        owl:NamedIndividual .
+
+:зелёный a [ a owl:Restriction ;
+            owl:onProperty :окрашивает ;
+            owl:someValuesFrom [ a owl:Restriction ;
+                    owl:onProperty :находится_справа_от ;
+                    owl:someValuesFrom [ a owl:Restriction ;
+                            owl:hasValue :слоновая_кость ;
+                            owl:onProperty :имеет_цвет ] ] ],
+        :Цвет,
+        owl:NamedIndividual .
+
+:красный a :Цвет,
+        owl:NamedIndividual .
+
+:пьёт a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Человек ;
+    rdfs:range :Напиток ;
+    owl:inverseOf :пьётся .
+
+:пьётся a owl:ObjectProperty ;
+    owl:inverseOf :пьёт .
+
+:слоновая_кость a :Цвет,
+        owl:NamedIndividual .
+
+:собака a :Животное,
+        owl:NamedIndividual .
+
+:улитки a :Животное,
+        owl:NamedIndividual .
+
+:чай a :Напиток,
+        owl:NamedIndividual .
+
+:дом1 a [ a owl:Restriction ;
+            owl:allValuesFrom owl:Nothing ;
+            owl:onProperty :находится_справа_от ],
+        :Дом,
+        owl:NamedIndividual .
+
+:дом3 a :Дом,
+        owl:NamedIndividual ;
+    :находится_справа_от :дом2 .
+
+:лиса a :Животное,
+        owl:NamedIndividual .
+
+:лошадь a :Животное,
+        owl:NamedIndividual .
+
+:синий a :Цвет,
+        owl:NamedIndividual .
+
+:находится_слева_от a owl:ObjectProperty ;
+    owl:inverseOf :находится_справа_от .
+
+:обитаем a owl:ObjectProperty ;
+    owl:inverseOf :живёт_в .
+
+:курится a owl:ObjectProperty ;
+    owl:inverseOf :курит .
+
+:находится_справа_от a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Дом ;
+    rdfs:range :Дом ;
+    owl:inverseOf :находится_слева_от .
+
+:Цвет a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :жёлтый :зелёный :красный :синий :слоновая_кость ) ] .
+
+:имеет a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Человек ;
+    rdfs:range :Животное ;
+    owl:inverseOf :принадлежит .
+
+:имеет_цвет a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Дом ;
+    rdfs:range :Цвет ;
+    owl:inverseOf :окрашивает .
+
+:Животное a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :зебра :лиса :лошадь :собака :улитки ) ] .
+
+:Напиток a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :апельсиновый_сок :вода :кофе :молоко :чай ) ] .
+
+:Сигареты a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :Chesterfield :Kool :LuckyStrike :OldGold :Parliament ) ] .
+
+:живёт_в a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Человек ;
+    rdfs:range :Дом ;
+    owl:inverseOf :обитаем .
+
+:Человек a owl:Class ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty :живёт_в ;
+                        owl:someValuesFrom :Дом ] [ a owl:Restriction ;
+                        owl:onProperty :имеет ;
+                        owl:someValuesFrom :Животное ] [ a owl:Restriction ;
+                        owl:onProperty :курит ;
+                        owl:someValuesFrom :Сигареты ] [ a owl:Restriction ;
+                        owl:onProperty :пьёт ;
+                        owl:someValuesFrom :Напиток ] ) ],
+        owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :англичанин :испанец :норвежец :украинец :японец ) ] .
+
+:Дом a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :дом1 :дом2 :дом3 :дом4 :дом5 ) ] .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :жёлтый :зелёный :красный :синий :слоновая_кость ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Дом :Животное :Человек :Напиток :Сигареты :Цвет ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :англичанин :испанец :норвежец :украинец :японец ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :апельсиновый_сок :вода :кофе :молоко :чай ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :дом1 :дом2 :дом3 :дом4 :дом5 ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :зебра :лиса :лошадь :собака :улитки ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Chesterfield :Kool :LuckyStrike :OldGold :Parliament ) .
+

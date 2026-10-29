@@ -4,6 +4,7 @@
 |---|---|
 | `slides_L2.pdf` | слайды лекции |
 | `demo_lecture2.ipynb` | блокнот демонстрации: онтология примера и машина вывода |
+| `КОНСПЕКТ_лекции_2.md` | конспект лекции по разделам слайдов, с вопросами для самопроверки и литературой |
 | `data/review.owl`, `data/review.ttl` | онтология примера в двух синтаксисах: классы, свойства, индивиды из корпуса и журнала, правило для требования 6.2. Блокнот записывает их заново на шаге 5 |
 | `data/reviews.csv`, `data/corpus_Aprime_standards.csv`, `data/paper_P2_claims.csv`, `data/corpus_A_planimetry.csv` | данные лекции 1, из них строятся индивиды |
 | `paper/` | статья недели: Krötzsch, Simančík, Horrocks «A Description Logic Primer» (разделы 1–3), см. `paper/README.md` |

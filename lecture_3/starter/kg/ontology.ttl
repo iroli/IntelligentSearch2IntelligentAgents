@@ -15,25 +15,48 @@
         :S3,
         :T5 .
 
+:ТребованиеОСроке a owl:Class ;
+    rdfs:subClassOf :Требование ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Требование [ a owl:Restriction ;
+                        owl:hasValue :T3 ;
+                        owl:onProperty :зависит_от ] ) ] .
+
 :балл a owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:domain :Сдача ;
     rdfs:range xsd:integer .
 
+:сдано a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Сдача ;
+    rdfs:range xsd:date .
+
 :сдача_Аня_зад1 a :Сдача,
         owl:NamedIndividual ;
     :автор :Аня ;
-    :балл 22 .
+    :балл 22 ;
+    :сдано "2026-09-14"^^xsd:date ;
+    :срок "2026-09-15"^^xsd:date .
 
 :сдача_Аня_зад2 a :Сдача,
         owl:NamedIndividual ;
     :автор :Аня ;
-    :балл 20 .
+    :балл 20 ;
+    :сдано "2026-09-28"^^xsd:date ;
+    :срок "2026-09-29"^^xsd:date .
 
 :сдача_Аня_зад3 a :Сдача,
         owl:NamedIndividual ;
     :автор :Аня ;
-    :балл 18 .
+    :балл 18 ;
+    :сдано "2026-10-13"^^xsd:date ;
+    :срок "2026-10-13"^^xsd:date .
+
+:срок a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :Сдача ;
+    rdfs:range xsd:date .
 
 :R32 a :Требование,
         owl:NamedIndividual ;
@@ -53,12 +76,6 @@
     rdfs:label "Студент"@ru ;
     :зависит_от :S2 .
 
-:T3 a :Термин,
-        owl:NamedIndividual ;
-    rdfs:label "Срок сдачи"@ru ;
-    :зависит_от :S2,
-        :T2 .
-
 :T5 a :Термин,
         owl:NamedIndividual ;
     rdfs:label "Зачёт"@ru ;
@@ -69,11 +86,6 @@
         owl:ObjectProperty ;
     rdfs:domain :Сдача ;
     rdfs:range :Студент .
-
-:зависит_от a owl:ObjectProperty,
-        owl:TransitiveProperty ;
-    rdfs:domain :Положение ;
-    rdfs:range :Положение .
 
 :R31 a :Требование,
         owl:NamedIndividual ;
@@ -86,11 +98,22 @@
         owl:NamedIndividual ;
     rdfs:label "Раздел 1. Общие положения"@ru .
 
+:T3 a :Термин,
+        owl:NamedIndividual ;
+    rdfs:label "Срок сдачи"@ru ;
+    :зависит_от :S2,
+        :T2 .
+
 :T4 a :Термин,
         owl:NamedIndividual ;
     rdfs:label "Балл"@ru ;
     :зависит_от :S2,
         :T2 .
+
+:зависит_от a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain :Положение ;
+    rdfs:range :Положение .
 
 :T2 a :Термин,
         owl:NamedIndividual ;
@@ -119,14 +142,17 @@
 :Раздел a owl:Class ;
     rdfs:subClassOf :Положение .
 
+:Положение a owl:Class ;
+    rdfs:subClassOf :Объект .
+
+:Термин a owl:Class ;
+    rdfs:subClassOf :Положение .
+
 :Требование a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :зависит_от ;
             owl:someValuesFrom :Раздел ],
         :Положение .
-
-:Положение a owl:Class ;
-    rdfs:subClassOf :Объект .
 
 :Сдача a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -134,12 +160,9 @@
             owl:someValuesFrom :Студент ],
         :Объект .
 
-:Термин a owl:Class ;
-    rdfs:subClassOf :Положение .
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Раздел :Термин :Требование ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( :Положение :Студент :Сдача ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( :Раздел :Термин :Требование ) .
 

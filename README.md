@@ -4,9 +4,10 @@
 
 | Папка | Занятие | Что внутри |
 |---|---|---|
-| `lecture_1/` | Лекция 1. От данных к знаниям: DIKW и архитектура сквозного проекта | слайды, блокнот демонстрации, данные, статья недели |
-| `lecture_2/` | Лекция 2. Основы логики и язык OWL | слайды, блокнот демонстрации, данные с онтологией, статья недели |
-| `lecture_3/` | Практика 1. От вопроса к агенту | слайды, три блокнота, мини-агент в `agent/`, данные, стартовый набор для заданий 1 и 2 |
+| `lecture_1/` | Лекция 1. От данных к знаниям: DIKW и архитектура сквозного проекта | слайды, конспект, блокнот демонстрации, данные, статья недели |
+| `lecture_2/` | Лекция 2. Основы логики и язык OWL | слайды, конспект, блокнот демонстрации, данные с онтологией, статья недели |
+| `lecture_3/` | Практика 1. От вопроса к агенту | слайды, конспект, три блокнота, мини-агент в `agent/`, данные, стартовый набор для заданий 1, 2 и 3 |
+| `lecture_4/` | Лекция 3. Онтология и вывод: проектирование по вопросам, машина вывода, SHACL | слайды, конспект по SHACL, блокнот демонстрации, данные с формами SHACL, статья недели, презентация по SHACL, примеры «загадка Эйнштейна», Jobs Puzzle, OWLuedo |
 
 Сквозной пример всех занятий один: задача редактора сборника. Есть положение о рецензировании, журнал рецензий по восьми статьям и утверждения математической статьи P2. Вопрос редактора: какие статьи можно выносить на решение и на что опирается это требование.
 
@@ -23,10 +24,12 @@ python3 -m notebook                  # Jupyter, открыть блокнот н
 ## Что где лежит
 
 ```
-lecture_1/  slides_L1.pdf  demo_lecture1.ipynb  data/  paper/
-lecture_2/  slides_L2.pdf  demo_lecture2.ipynb  data/  paper/
-lecture_3/  slides_P1.pdf  slides_P1_tools.pdf  practice_1_editor.ipynb  practice_2_ontology.ipynb
-            practice_3_tasks.ipynb  agent/  data/  starter/  README.md
+lecture_1/  slides_L1.pdf  КОНСПЕКТ_лекции_1.md  demo_lecture1.ipynb  data/  paper/
+lecture_2/  slides_L2.pdf  КОНСПЕКТ_лекции_2.md  demo_lecture2.ipynb  data/  paper/
+lecture_3/  slides_P1.pdf  slides_P1_tools.pdf  КОНСПЕКТ_практики_1.md  practice_1_editor.ipynb
+            practice_2_ontology.ipynb  practice_3_tasks.ipynb  agent/  data/  starter/  README.md
+lecture_4/  slides_L3.pdf  SHACL_для_начинающих.pdf  demo_lecture3.ipynb  data/  paper/
+            shacl/  zebra/  jobs/  owluedo/
 ```
 
 Статья недели к каждой лекции лежит в её папке `paper/` с указанием разделов для чтения. Задание 1 описано в `lecture_1/README.md`, задание 2 в `lecture_2/README.md`, образец выполненных заданий в `lecture_3/starter/`.

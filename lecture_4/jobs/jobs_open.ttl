@@ -1,0 +1,122 @@
+@prefix : <http://example.org/jobs.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/jobs.owl> a owl:Ontology .
+
+:Пит a [ a owl:Class ;
+            owl:complementOf [ a owl:Restriction ;
+                    owl:onProperty :имеет_профессию ;
+                    owl:someValuesFrom [ a owl:Class ;
+                            owl:oneOf ( :медсестра :учитель :полицейский ) ] ] ],
+        :Мужчина,
+        owl:NamedIndividual .
+
+:Роберта a [ a owl:Class ;
+            owl:complementOf [ a owl:Restriction ;
+                    owl:onProperty :имеет_профессию ;
+                    owl:someValuesFrom [ a owl:Class ;
+                            owl:oneOf ( :шеф_повар :полицейский ) ] ] ],
+        [ a owl:Class ;
+            owl:complementOf [ a owl:Restriction ;
+                    owl:hasValue :боксёр ;
+                    owl:onProperty :имеет_профессию ] ],
+        :Женщина,
+        owl:NamedIndividual .
+
+:Стив a :Мужчина,
+        owl:NamedIndividual .
+
+:Тельма a :Женщина,
+        owl:NamedIndividual .
+
+:актёр a [ a owl:Restriction ;
+            owl:allValuesFrom :Мужчина ;
+            owl:onProperty :занята ],
+        :Профессия,
+        owl:NamedIndividual .
+
+:муж a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Женщина ;
+    rdfs:range :Мужчина .
+
+:охранник a :Профессия,
+        owl:NamedIndividual .
+
+:боксёр a :Профессия,
+        owl:NamedIndividual .
+
+:медсестра a [ a owl:Restriction ;
+            owl:allValuesFrom :Мужчина ;
+            owl:onProperty :занята ],
+        :Профессия,
+        owl:NamedIndividual .
+
+:телефонист a [ a owl:Restriction ;
+            owl:allValuesFrom :Мужчина ;
+            owl:onProperty :занята ],
+        :Профессия,
+        owl:NamedIndividual .
+
+:учитель a :Профессия,
+        owl:NamedIndividual .
+
+:шеф_повар a [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:complementOf [ a owl:Restriction ;
+                            owl:hasValue :полицейский ;
+                            owl:onProperty :имеет_профессию ] ] ;
+            owl:onProperty :занята ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( :Женщина [ a owl:Restriction ;
+                                owl:onProperty :муж ;
+                                owl:someValuesFrom [ a owl:Restriction ;
+                                        owl:hasValue :телефонист ;
+                                        owl:onProperty :имеет_профессию ] ] ) ] ;
+            owl:onProperty :занята ],
+        :Профессия,
+        owl:NamedIndividual .
+
+:Человек a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Профессия ;
+            owl:onProperty :имеет_профессию ;
+            owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ],
+        owl:Thing ;
+    owl:disjointWith :Профессия .
+
+:полицейский a :Профессия,
+        owl:NamedIndividual .
+
+:Женщина a owl:Class ;
+    rdfs:subClassOf :Человек .
+
+:Мужчина a owl:Class ;
+    rdfs:subClassOf :Человек ;
+    owl:disjointWith :Женщина .
+
+:занята a owl:ObjectProperty ;
+    owl:inverseOf :имеет_профессию .
+
+:имеет_профессию a owl:ObjectProperty ;
+    rdfs:domain :Человек ;
+    rdfs:range :Профессия ;
+    owl:inverseOf :занята .
+
+:Профессия a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Человек ;
+            owl:onProperty :занята ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        owl:Thing .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Роберта :Пит :Тельма :Стив ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :шеф_повар :охранник :медсестра :телефонист :полицейский :учитель :актёр :боксёр ) .
+

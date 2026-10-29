@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/jobs.owl"
+         xmlns="http://example.org/jobs.owl#">
+
+<owl:Ontology rdf:about="http://example.org/jobs.owl"/>
+
+<owl:ObjectProperty rdf:about="#имеет_профессию">
+  <rdfs:domain rdf:resource="#Человек"/>
+  <rdfs:range rdf:resource="#Профессия"/>
+  <owl:inverseOf rdf:resource="#занята"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#занята">
+  <owl:inverseOf rdf:resource="#имеет_профессию"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#муж">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Женщина"/>
+  <rdfs:range rdf:resource="#Мужчина"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#Человек">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:disjointWith rdf:resource="#Профессия"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_профессию"/>
+      <owl:onClass rdf:resource="#Профессия"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Роберта"/>
+        <rdf:Description rdf:about="#Пит"/>
+        <rdf:Description rdf:about="#Тельма"/>
+        <rdf:Description rdf:about="#Стив"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Мужчина">
+  <rdfs:subClassOf rdf:resource="#Человек"/>
+  <owl:disjointWith rdf:resource="#Женщина"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Женщина">
+  <rdfs:subClassOf rdf:resource="#Человек"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Профессия">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#занята"/>
+      <owl:onClass rdf:resource="#Человек"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#шеф_повар"/>
+        <rdf:Description rdf:about="#охранник"/>
+        <rdf:Description rdf:about="#медсестра"/>
+        <rdf:Description rdf:about="#телефонист"/>
+        <rdf:Description rdf:about="#полицейский"/>
+        <rdf:Description rdf:about="#учитель"/>
+        <rdf:Description rdf:about="#актёр"/>
+        <rdf:Description rdf:about="#боксёр"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Роберта">
+  <rdf:type rdf:resource="#Женщина"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_профессию"/>
+          <owl:hasValue rdf:resource="#боксёр"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_профессию"/>
+          <owl:someValuesFrom>
+            <owl:Class>
+              <owl:oneOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#шеф_повар"/>
+                <rdf:Description rdf:about="#полицейский"/>
+              </owl:oneOf>
+            </owl:Class>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Тельма">
+  <rdf:type rdf:resource="#Женщина"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Пит">
+  <rdf:type rdf:resource="#Мужчина"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_профессию"/>
+          <owl:someValuesFrom>
+            <owl:Class>
+              <owl:oneOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#медсестра"/>
+                <rdf:Description rdf:about="#учитель"/>
+                <rdf:Description rdf:about="#полицейский"/>
+              </owl:oneOf>
+            </owl:Class>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Стив">
+  <rdf:type rdf:resource="#Мужчина"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#шеф_повар">
+  <rdf:type rdf:resource="#Профессия"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#занята"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Женщина"/>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#муж"/>
+              <owl:someValuesFrom>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#имеет_профессию"/>
+                  <owl:hasValue rdf:resource="#телефонист"/>
+                </owl:Restriction>
+              </owl:someValuesFrom>
+            </owl:Restriction>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#занята"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#имеет_профессию"/>
+              <owl:hasValue rdf:resource="#полицейский"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#охранник">
+  <rdf:type rdf:resource="#Профессия"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#медсестра">
+  <rdf:type rdf:resource="#Профессия"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#занята"/>
+      <owl:allValuesFrom rdf:resource="#Мужчина"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#телефонист">
+  <rdf:type rdf:resource="#Профессия"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#занята"/>
+      <owl:allValuesFrom rdf:resource="#Мужчина"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#полицейский">
+  <rdf:type rdf:resource="#Профессия"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#учитель">
+  <rdf:type rdf:resource="#Профессия"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#актёр">
+  <rdf:type rdf:resource="#Профессия"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#занята"/>
+      <owl:allValuesFrom rdf:resource="#Мужчина"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#боксёр">
+  <rdf:type rdf:resource="#Профессия"/>
+</owl:NamedIndividual>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#шеф_повар"/>
+    <rdf:Description rdf:about="#охранник"/>
+    <rdf:Description rdf:about="#медсестра"/>
+    <rdf:Description rdf:about="#телефонист"/>
+    <rdf:Description rdf:about="#полицейский"/>
+    <rdf:Description rdf:about="#учитель"/>
+    <rdf:Description rdf:about="#актёр"/>
+    <rdf:Description rdf:about="#боксёр"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Роберта"/>
+    <rdf:Description rdf:about="#Пит"/>
+    <rdf:Description rdf:about="#Тельма"/>
+    <rdf:Description rdf:about="#Стив"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+
+</rdf:RDF>

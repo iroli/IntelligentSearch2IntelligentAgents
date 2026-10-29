@@ -1,0 +1,1145 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/review.owl"
+         xmlns="http://example.org/review.owl#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#">
+
+<owl:Ontology rdf:about="http://example.org/review.owl"/>
+
+<owl:ObjectProperty rdf:about="#зависит_от">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Положение"/>
+  <rdfs:range rdf:resource="#Положение"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#на_статью">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="#Статья"/>
+  <owl:inverseOf rdf:resource="#имеет_рецензию"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#имеет_рецензию">
+  <owl:inverseOf rdf:resource="#на_статью"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#рецензент">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="#Рецензент"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#из_организации">
+  <rdfs:domain rdf:resource="#Рецензент"/>
+  <rdfs:range rdf:resource="#Организация"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#организация_авторов">
+  <rdfs:domain rdf:resource="#Статья"/>
+  <rdfs:range rdf:resource="#Организация"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#нарушает">
+  <rdfs:domain rdf:resource="#Статья"/>
+  <rdfs:range rdf:resource="#Требование"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#содержит_утверждение">
+  <rdfs:domain rdf:resource="#Статья"/>
+  <rdfs:range rdf:resource="#Утверждение"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#доказывается">
+  <rdfs:domain rdf:resource="#Утверждение"/>
+  <rdfs:range rdf:resource="#Доказательство"/>
+  <owl:inverseOf rdf:resource="#доказывает"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#доказывает">
+  <owl:inverseOf rdf:resource="#доказывается"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#оценка">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#шкала">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#назначено">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#сдано">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ответ_авторов">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#вердикт">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Доказательство"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#источник">
+  <rdfs:domain rdf:resource="#Положение"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#срок">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Рецензия"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Положение">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Рецензия">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+  <rdfs:isDefinedBy rdf:resource="#T06"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#на_статью"/>
+      <owl:someValuesFrom rdf:resource="#Статья"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#рецензент"/>
+      <owl:someValuesFrom rdf:resource="#Рецензент"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Статья">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Рецензент">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Организация">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Требование">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#зависит_от"/>
+      <owl:someValuesFrom rdf:resource="#Раздел"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Утверждение">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#доказывается"/>
+      <owl:someValuesFrom rdf:resource="#Доказательство"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Доказательство">
+  <rdfs:subClassOf rdf:resource="#Объект"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Объект">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Раздел">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Термин">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+</owl:Class>
+
+<owl:Class rdf:about="#БазовоеПоложение">
+  <rdfs:subClassOf rdf:resource="#Положение"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Положение"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#зависит_от"/>
+              <owl:someValuesFrom rdf:resource="#Положение"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#СданнаяРецензия">
+  <rdfs:subClassOf rdf:resource="#Рецензия"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Рецензия"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#сдано"/>
+          <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#ГотоваяКРешениюСтатья">
+  <rdfs:subClassOf rdf:resource="#Статья"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Статья"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_рецензию"/>
+          <owl:onClass rdf:resource="#СданнаяРецензия"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_рецензию"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:intersectionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#Рецензия"/>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#ответ_авторов"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                </owl:Restriction>
+              </owl:intersectionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#нарушает"/>
+              <owl:someValuesFrom rdf:resource="#Требование"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#T06">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T05"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#T09"/>
+  <rdfs:label xml:lang="ru">Рецензия</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.6</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S01">
+  <rdf:type rdf:resource="#Раздел"/>
+  <rdfs:label xml:lang="ru">Раздел 1. Область применения</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §1</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S02">
+  <rdf:type rdf:resource="#Раздел"/>
+  <rdfs:label xml:lang="ru">Раздел 2. Нормативные ссылки</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §2</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S03">
+  <rdf:type rdf:resource="#Раздел"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Раздел 3. Термины и определения</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T01">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Статья</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.1</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T02">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Аннотация</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.2</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T03">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Ключевые слова</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.3</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T04">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Автор</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.4</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T05">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Рецензент</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.5</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T09">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Редакционная коллегия</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.9</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T07">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#T05"/>
+  <rdfs:label xml:lang="ru">Замечание</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.7</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T08">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T07"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#T05"/>
+  <rdfs:label xml:lang="ru">Ответ авторов</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.8</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T10">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">Решение</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.10</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T11">
+  <rdf:type rdf:resource="#Термин"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#S01"/>
+  <rdfs:label xml:lang="ru">ИИ-инструмент</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §3.11</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S05">
+  <rdf:type rdf:resource="#Раздел"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <rdfs:label xml:lang="ru">Раздел 5. Требования к оформлению статьи</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §5</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R51">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S05"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <rdfs:label xml:lang="ru">5.1 Объём статьи</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §5.1</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R52">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S05"/>
+  <зависит_от rdf:resource="#T02"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">5.2 Аннотация</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §5.2</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R53">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S05"/>
+  <зависит_от rdf:resource="#T03"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">5.3 Ключевые слова</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §5.3</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R54">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S05"/>
+  <зависит_от rdf:resource="#S02"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <rdfs:label xml:lang="ru">5.4 Список литературы</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §5.4</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S06">
+  <rdf:type rdf:resource="#Раздел"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <rdfs:label xml:lang="ru">Раздел 6. Порядок рецензирования</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R61">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#T05"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <rdfs:label xml:lang="ru">6.1 Число рецензий</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6.1</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R62">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#T05"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">6.2 Независимость рецензента</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6.2</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R63">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#T07"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#T05"/>
+  <rdfs:label xml:lang="ru">6.3 Содержание рецензии</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6.3</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R64">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#R63"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#T08"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#T07"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#T05"/>
+  <rdfs:label xml:lang="ru">6.4 Ответ на замечания</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6.4</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R65">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#R61"/>
+  <зависит_от rdf:resource="#T10"/>
+  <зависит_от rdf:resource="#R64"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#R63"/>
+  <зависит_от rdf:resource="#T05"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#T07"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#T08"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">6.5 Принятие решения</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6.5</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R66">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#T05"/>
+  <rdfs:label xml:lang="ru">6.6 Срок рецензирования</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §6.6</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#S08">
+  <rdf:type rdf:resource="#Раздел"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <rdfs:label xml:lang="ru">Раздел 8. Этика и ответственность</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §8</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R81">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S08"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#R62"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#T05"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">8.1 Конфликт интересов</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §8.1</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R82">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#T01"/>
+  <зависит_от rdf:resource="#T11"/>
+  <зависит_от rdf:resource="#S08"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <rdfs:label xml:lang="ru">8.2 Использование ИИ-инструментов</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §8.2</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R83">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S08"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#R82"/>
+  <зависит_от rdf:resource="#T11"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">8.3 Ответственность за содержание</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §8.3</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#R91">
+  <rdf:type rdf:resource="#Требование"/>
+  <зависит_от rdf:resource="#S01"/>
+  <зависит_от rdf:resource="#T10"/>
+  <зависит_от rdf:resource="#R65"/>
+  <зависит_от rdf:resource="#T06"/>
+  <зависит_от rdf:resource="#T09"/>
+  <зависит_от rdf:resource="#R63"/>
+  <зависит_от rdf:resource="#T05"/>
+  <зависит_от rdf:resource="#R64"/>
+  <зависит_от rdf:resource="#T04"/>
+  <зависит_от rdf:resource="#T07"/>
+  <зависит_от rdf:resource="#T08"/>
+  <зависит_от rdf:resource="#S03"/>
+  <зависит_от rdf:resource="#R61"/>
+  <зависит_от rdf:resource="#S06"/>
+  <зависит_от rdf:resource="#T01"/>
+  <rdfs:label xml:lang="ru">9.1 Повторная подача</rdfs:label>
+  <источник rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Положение о статьях §9.1</источник>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#МГУ">
+  <rdf:type rdf:resource="#Организация"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ФИЦ_ИУ">
+  <rdf:type rdf:resource="#Организация"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P1">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#МГУ"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P1_Rv1"/>
+            <rdf:Description rdf:about="#рец_P1_Rv2"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rv1">
+  <rdf:type rdf:resource="#Рецензент"/>
+  <из_организации rdf:resource="#ФИЦ_ИУ"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P1_Rv1">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P1"/>
+  <рецензент rdf:resource="#Rv1"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-01</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-15</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-22</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#МФТИ">
+  <rdf:type rdf:resource="#Организация"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rv2">
+  <rdf:type rdf:resource="#Рецензент"/>
+  <из_организации rdf:resource="#МФТИ"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P1_Rv2">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P1"/>
+  <рецензент rdf:resource="#Rv2"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-01</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-18</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-22</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ИТМО">
+  <rdf:type rdf:resource="#Организация"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P2">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#МФТИ"/>
+  <содержит_утверждение rdf:resource="#C1"/>
+  <содержит_утверждение rdf:resource="#C2"/>
+  <содержит_утверждение rdf:resource="#C3"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P2_Rv3"/>
+            <rdf:Description rdf:about="#рец_P2_Rv1"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C1">
+  <rdf:type rdf:resource="#Утверждение"/>
+  <доказывается rdf:resource="#Док_C1"/>
+  <rdfs:label xml:lang="ru">В прямоугольном треугольнике медиана проведённая к гипотенузе равна её половине</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2">
+  <rdf:type rdf:resource="#Утверждение"/>
+  <доказывается rdf:resource="#Док_C2"/>
+  <rdfs:label xml:lang="ru">Высота к гипотенузе равна произведению катетов делённому на гипотенузу</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C3">
+  <rdf:type rdf:resource="#Утверждение"/>
+  <доказывается rdf:resource="#Док_C3"/>
+  <rdfs:label xml:lang="ru">В любом треугольнике медиана к стороне равна её половине</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rv3">
+  <rdf:type rdf:resource="#Рецензент"/>
+  <из_организации rdf:resource="#ИТМО"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P2_Rv3">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P2"/>
+  <рецензент rdf:resource="#Rv3"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-01</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-12</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-22</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P2_Rv1">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P2"/>
+  <рецензент rdf:resource="#Rv1"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-01</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-20</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-22</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P3">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#ФИЦ_ИУ"/>
+  <нарушает rdf:resource="#R62"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P3_Rv4"/>
+            <rdf:Description rdf:about="#рец_P3_Rv2"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#R62"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rv4">
+  <rdf:type rdf:resource="#Рецензент"/>
+  <из_организации rdf:resource="#ФИЦ_ИУ"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P3_Rv4">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P3"/>
+  <рецензент rdf:resource="#Rv4"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-02</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-16</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-23</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P3_Rv2">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P3"/>
+  <рецензент rdf:resource="#Rv2"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-02</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-19</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-23</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P4">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#ИТМО"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P4_Rv5"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rv5">
+  <rdf:type rdf:resource="#Рецензент"/>
+  <из_организации rdf:resource="#МГУ"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P4_Rv5">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P4"/>
+  <рецензент rdf:resource="#Rv5"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-02</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-14</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-23</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P5">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#МГУ"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P5_Rv3"/>
+            <rdf:Description rdf:about="#рец_P5_Rv6"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P5_Rv3">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P5"/>
+  <рецензент rdf:resource="#Rv3"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-03</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-30</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-24</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rv6">
+  <rdf:type rdf:resource="#Рецензент"/>
+  <из_организации rdf:resource="#МФТИ"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P5_Rv6">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P5"/>
+  <рецензент rdf:resource="#Rv6"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-03</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-17</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-24</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P6">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#МФТИ"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P6_Rv4"/>
+            <rdf:Description rdf:about="#рец_P6_Rv5"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P6_Rv4">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P6"/>
+  <рецензент rdf:resource="#Rv4"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-03</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-15</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-24</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P6_Rv5">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P6"/>
+  <рецензент rdf:resource="#Rv5"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-03</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-16</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-24</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P7">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#ИТМО"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P7_Rv6"/>
+            <rdf:Description rdf:about="#рец_P7_Rv2"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P7_Rv6">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P7"/>
+  <рецензент rdf:resource="#Rv6"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-04</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-18</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-25</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P7_Rv2">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P7"/>
+  <рецензент rdf:resource="#Rv2"/>
+  <rdf:type rdf:resource="#СданнаяРецензия"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-04</назначено>
+  <сдано rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-20</сдано>
+  <оценка rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.0</оценка>
+  <шкала rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</шкала>
+  <ответ_авторов rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ответ_авторов>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-25</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#P8">
+  <rdf:type rdf:resource="#Статья"/>
+  <организация_авторов rdf:resource="#ФИЦ_ИУ"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#имеет_рецензию"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#рец_P8_Rv5"/>
+          </owl:oneOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#нарушает"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#рец_P8_Rv5">
+  <rdf:type rdf:resource="#Рецензия"/>
+  <на_статью rdf:resource="#P8"/>
+  <рецензент rdf:resource="#Rv5"/>
+  <назначено rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-04</назначено>
+  <срок rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-25</срок>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Док_C1">
+  <rdf:type rdf:resource="#Доказательство"/>
+  <вердикт rdf:datatype="http://www.w3.org/2001/XMLSchema#string">принято</вердикт>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Док_C2">
+  <rdf:type rdf:resource="#Доказательство"/>
+  <вердикт rdf:datatype="http://www.w3.org/2001/XMLSchema#string">принято</вердикт>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Док_C3">
+  <rdf:type rdf:resource="#Доказательство"/>
+  <вердикт rdf:datatype="http://www.w3.org/2001/XMLSchema#string">отклонено</вердикт>
+</owl:NamedIndividual>
+
+<swrl:Variable rdf:about="urn:swrl#r"/>
+
+<swrl:Variable rdf:about="urn:swrl#s"/>
+
+<swrl:Variable rdf:about="urn:swrl#p"/>
+
+<swrl:Variable rdf:about="urn:swrl#o"/>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Раздел"/>
+    <rdf:Description rdf:about="#Термин"/>
+    <rdf:Description rdf:about="#Требование"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Положение"/>
+    <rdf:Description rdf:about="#Статья"/>
+    <rdf:Description rdf:about="#Рецензия"/>
+    <rdf:Description rdf:about="#Рецензент"/>
+    <rdf:Description rdf:about="#Организация"/>
+    <rdf:Description rdf:about="#Утверждение"/>
+    <rdf:Description rdf:about="#Доказательство"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<swrl:Imp>
+  <swrl:body>
+    <rdf:Description>
+      <rdf:first>
+        <swrl:ClassAtom>
+          <swrl:classPredicate rdf:resource="#Рецензия"/>
+          <swrl:argument1 rdf:resource="urn:swrl#r"/>
+        </swrl:ClassAtom>
+      </rdf:first>
+      <rdf:rest>
+        <rdf:Description>
+          <rdf:first>
+            <swrl:IndividualPropertyAtom>
+              <swrl:propertyPredicate rdf:resource="#на_статью"/>
+              <swrl:argument1 rdf:resource="urn:swrl#r"/>
+              <swrl:argument2 rdf:resource="urn:swrl#s"/>
+            </swrl:IndividualPropertyAtom>
+          </rdf:first>
+          <rdf:rest>
+            <rdf:Description>
+              <rdf:first>
+                <swrl:IndividualPropertyAtom>
+                  <swrl:propertyPredicate rdf:resource="#рецензент"/>
+                  <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                  <swrl:argument2 rdf:resource="urn:swrl#p"/>
+                </swrl:IndividualPropertyAtom>
+              </rdf:first>
+              <rdf:rest>
+                <rdf:Description>
+                  <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#из_организации"/>
+                      <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                      <swrl:argument2 rdf:resource="urn:swrl#o"/>
+                    </swrl:IndividualPropertyAtom>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <swrl:IndividualPropertyAtom>
+                          <swrl:propertyPredicate rdf:resource="#организация_авторов"/>
+                          <swrl:argument1 rdf:resource="urn:swrl#s"/>
+                          <swrl:argument2 rdf:resource="urn:swrl#o"/>
+                        </swrl:IndividualPropertyAtom>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </rdf:rest>
+            </rdf:Description>
+          </rdf:rest>
+        </rdf:Description>
+      </rdf:rest>
+    </rdf:Description>
+  </swrl:body>
+  <swrl:head>
+    <rdf:Description>
+      <rdf:first>
+        <swrl:IndividualPropertyAtom>
+          <swrl:propertyPredicate rdf:resource="#нарушает"/>
+          <swrl:argument1 rdf:resource="urn:swrl#s"/>
+          <swrl:argument2 rdf:resource="#R62"/>
+        </swrl:IndividualPropertyAtom>
+      </rdf:first>
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+  </swrl:head>
+</swrl:Imp>
+
+
+</rdf:RDF>

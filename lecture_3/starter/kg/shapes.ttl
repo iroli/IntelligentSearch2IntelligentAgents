@@ -1,0 +1,33 @@
+# Формы SHACL для онтологии «Правила зачёта». Задание 3, стартовый набор.
+# Проверка:  python3 scripts/check_l3.py   или   pyshacl -s kg/shapes.ttl kg/ontology.ttl
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix :    <http://example.org/zachet.owl#> .
+@prefix shp: <http://example.org/shapes#> .
+
+# 1. Число связей: у каждого требования записано, на что оно опирается
+shp:Требование a sh:NodeShape ;
+    sh:targetClass :Требование ;
+    sh:property [
+        sh:path :зависит_от ;
+        sh:minCount 1 ;
+        sh:message "требование ни на что не опирается" ] .
+
+# 2. Тип и допустимые значения: у сдачи ровно один автор, и это студент; балл целый от 0 до 25
+shp:Сдача a sh:NodeShape ;
+    sh:targetClass :Сдача ;
+    sh:property [
+        sh:path :автор ;
+        sh:class :Студент ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "у сдачи должен быть ровно один автор, и это студент" ] ;
+    sh:property [
+        sh:path :балл ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ; sh:maxInclusive 25 ;
+        sh:message "балл за задание от 0 до 25" ] ;
+    # 3. Сравнение значений: требование 3.2, задание сдано не позже срока
+    sh:property [
+        sh:path :сдано ;
+        sh:lessThanOrEquals :срок ;
+        sh:message "3.2: задание сдано позже срока" ] .

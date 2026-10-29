@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/parent_sally.owl"
+         xmlns="http://example.org/parent_sally.owl#">
+
+<owl:Ontology rdf:about="http://example.org/parent_sally.owl"/>
+
+<owl:ObjectProperty rdf:about="#имеет_ребёнка"/>
+
+<owl:Class rdf:about="#Человек">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:disjointWith rdf:resource="#Корова"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Мужчина">
+  <rdfs:subClassOf rdf:resource="#Человек"/>
+  <owl:disjointWith rdf:resource="#Женщина"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Женщина">
+  <rdfs:subClassOf rdf:resource="#Человек"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Корова">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Родитель">
+  <rdfs:subClassOf rdf:resource="#Человек"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Человек"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_ребёнка"/>
+          <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_ребёнка"/>
+          <owl:allValuesFrom rdf:resource="#Человек"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Салли">
+  <rdf:type rdf:resource="#Женщина"/>
+  <имеет_ребёнка rdf:resource="#Фред"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Фред">
+  <rdf:type rdf:resource="#Мужчина"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Элси">
+  <rdf:type rdf:resource="#Корова"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Пит">
+  <rdf:type rdf:resource="#Мужчина"/>
+</owl:NamedIndividual>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Салли"/>
+    <rdf:Description rdf:about="#Фред"/>
+    <rdf:Description rdf:about="#Элси"/>
+    <rdf:Description rdf:about="#Пит"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+
+</rdf:RDF>

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="https://w3id.org/cluedo4KG/onto#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Raimond_Tology">
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Penny_Géant"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Buste_de_Tim_Berners_Lee"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#curry"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdfs:label>Raimond Tology</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#RDC">
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Floor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Acide_Fluoro-Antimonique">
+    <ns1:hasDensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.36</ns1:hasDensity>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Jean_Neymar">
+    <rdfs:label>Jean Neymar</rdfs:label>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#café"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#curry"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Alcool_à_brûler"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Hachoir_de_Cuisine"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Poignard"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Ballon_ovale_dégonflé"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Jango_Tham">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#curry"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Alcool_à_brûler"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Penny_Géant"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peluche_de_Requin"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Glaive"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#cyanure"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#café"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Formol"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:owns rdf:resource="http://www.lamaisondumeurtre.fr/BC#Revolver_Python_357"/>
+    <rdfs:label>Jango Tham</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Roger_Rienkompri">
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Poignard"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Ballon_ovale_dégonflé"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Formol"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Acide_Fluoro-Antimonique"/>
+    <rdfs:label>Roger Rienkompri</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Alcool_à_brûler">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <ns1:hasDensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.9</ns1:hasDensity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Ann_Geber">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Glaive"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Nokia_3310"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Ballon_ovale_dégonflé"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Scie_Sauteuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Lance"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Mort_au_rats"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Poignard"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peluche_de_Requin"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Bouteille_en_sucre"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <rdfs:label>Ann Geber</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Hachoir_de_Cuisine">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Buste_de_Tim_Berners_Lee">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#BluntObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Salon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <ns1:roomContainsArea rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+    <ns1:roomContainsArea rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:hasAsNeighbourRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:hasAsNeighbourRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Cuisine">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Omar_Ty">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Penny_Géant"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#café"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Formol"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Acide_Fluoro-Antimonique"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <ns1:discoveredAfter rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ns1:discoveredAfter>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <ns1:isAlive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ns1:isAlive>
+    <rdfs:label>Omar Tyr</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Justin_Case">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Revolver_Python_357"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#cyanure"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#L'Assomoir_d'Emile_ZOla"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peluche_de_Requin"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Scie_Sauteuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Acide_Fluoro-Antimonique"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Justin Case</rdfs:label>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Chambre">
+    <ns1:roomContainsArea rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Dance_Floor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Area"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Glaive">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Oscar_Bone">
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdfs:label>Oscar Bone</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Lena_Ture">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#oreiller"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Hachoir_de_Cuisine"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Mort_au_rats"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+    <rdfs:label>Lena Ture</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Peinture_Murale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#ImmobileObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Bertha_Bassez">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Nokia_3310"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Lance"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Alcool_à_brûler"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Scie_Sauteuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dague"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Bouteille_en_sucre"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Glaive"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdfs:label>Bertha Bassez</rdfs:label>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Polly_Esther">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Glaive"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Nokia_3310"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#café"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Acide_Fluoro-Antimonique"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#curry"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Scie_Sauteuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Poignard"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dague"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#L'Assomoir_d'Emile_ZOla"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peluche_de_Requin"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <rdfs:label>Polly Esther</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Area"/>
+    <ns1:organisedAround rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peinture_Murale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Mort_au_rats">
+    <ns1:hasDensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.6</ns1:hasDensity>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#curry">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#PowderProduct"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Ella_Dron">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Alcool_à_brûler"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Poignard"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dague"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Nokia_3310"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#L'Assomoir_d'Emile_ZOla"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peluche_de_Requin"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène"/>
+    <rdfs:label>Ella Dron</rdfs:label>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:isInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Lance">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Perla_Madonna">
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <rdfs:label>Perla Madonna</rdfs:label>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#L'Assomoir_d'Emile_ZOla"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Bouteille_en_sucre"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Glaive"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#café"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Buste_de_Tim_Berners_Lee"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#oreiller"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Poignard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Ana_Conda">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Penny_Géant"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Formol"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#oreiller"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Revolver_Python_357"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <rdfs:label>Ana Conda</rdfs:label>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Bouteille_en_sucre">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#BluntObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr#2eme_Etage">
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Floor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Revolver_Python_357">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Firearm"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Peluche_de_Requin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SoftObject"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Nokia_3310">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#BluntObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr#Peroxyde_d'Hydrogène">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#LiquidProduct"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Ballon_ovale_dégonflé">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SoftObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Marc_Luedo">
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Alcool_à_brûler"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <rdfs:label>Marc Luedo</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Floor">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Floor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Room">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Atelier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <ns1:hasAsNeighbourRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <ns1:roomContainsObject rdf:resource="http://www.lamaisondumeurtre.fr/BC#Peinture_Murale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Dague">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr#L'Assomoir_d'Emile_ZOla">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Atelier"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#BluntObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Penny_Géant">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#BluntObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Amy_Stake">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Tronçonneuse"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dague"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Katana"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Buste_de_Tim_Berners_Lee"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture"/>
+    <rdfs:label>Amy Stake</rdfs:label>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Library">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:hasAsNeighbourRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:hasAsNeighbourRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#1st_Floor">
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Cuisine"/>
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <ns1:floorContainsRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Floor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Area"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Dressing">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:roomContainsPerson rdf:resource="http://www.lamaisondumeurtre.fr/BC#Jango_Tham"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Scie_Sauteuse">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Osama_Najimi">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:ownsOrOwned rdf:resource="http://www.lamaisondumeurtre.fr/BC#oreiller"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#échafaud_pour_Peinture"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Chambre"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#espace_de_Restauration"/>
+    <ns1:isOrWasInPlace rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+    <rdfs:label>Osama Najimi</rdfs:label>
+    <ns1:personInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Home_Cinema">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Manoir_Tamanoir">
+    <ns1:houseContainsFloor rdf:resource="http://www.lamaisondumeurtre.fr/BC#RDC"/>
+    <ns1:houseContainsFloor rdf:resource="http://www.lamaisondumeurtre.fr/BC#Greenhouse_Floor"/>
+    <ns1:houseContainsFloor rdf:resource="http://www.lamaisondumeurtre.fr/BC#1st_Floor"/>
+    <ns1:houseContainsFloor rdf:resource="http://www.lamaisondumeurtre.fr#2eme_Etage"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#House"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Boule_Disco">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#ImmobileObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:isCentreOf rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dance_Floor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#oreiller">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SoftObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#cyanure">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#PowderProduct"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Home_Cinema"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Room"/>
+    <ns1:hasAsNeighbourRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Katana">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Dressing"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Pied_de_Biche">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#BluntObject"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#coin_Cheminee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Area"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Formol">
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#LiquidProduct"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Library"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#Epee_Legendaire_Excalibur">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Room_exposition_Lego"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#SharpObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.lamaisondumeurtre.fr/BC#café">
+    <ns1:objectInRoom rdf:resource="http://www.lamaisondumeurtre.fr/BC#Salon"/>
+    <ns1:hasDensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</ns1:hasDensity>
+    <rdf:type rdf:resource="https://w3id.org/cluedo4KG/onto#Product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+</rdf:RDF>

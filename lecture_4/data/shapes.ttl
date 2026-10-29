@@ -1,0 +1,59 @@
+# Формы SHACL для положения о статьях. Лекция 3.
+# Граф данных: review.owl лекции 2 плюс свойство :срок, вычисленное при загрузке (назначено + 21 день).
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix :    <http://example.org/review.owl#> .
+@prefix shp: <http://example.org/shapes#> .
+
+# 6.1. У статьи не меньше двух сданных рецензий. В файле записано только :на_статью, поэтому путь обратный.
+shp:Статья a sh:NodeShape ;
+    sh:targetClass :Статья ;
+    sh:property [
+        sh:path [ sh:inversePath :на_статью ] ;
+        sh:qualifiedValueShape [ sh:property [ sh:path :сдано ; sh:minCount 1 ] ] ;
+        sh:qualifiedMinCount 2 ;
+        sh:message "6.1: сданных рецензий меньше двух" ] .
+
+shp:Рецензия a sh:NodeShape ;
+    sh:targetClass :Рецензия ;
+    # запись: у рецензии ровно одна статья, и это статья
+    sh:property [
+        sh:path :на_статью ;
+        sh:class :Статья ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "у рецензии должна быть ровно одна статья" ] ;
+    # запись: рецензентом может быть только рецензент
+    sh:property [
+        sh:path :рецензент ;
+        sh:class :Рецензент ;
+        sh:maxCount 1 ;
+        sh:message "рецензентом должен быть рецензент" ] ;
+    # запись: шкала оценки 5 или 10
+    sh:property [
+        sh:path :шкала ;
+        sh:in ( 5 10 ) ;
+        sh:message "шкала оценки 5 или 10" ] ;
+    # 6.6. Рецензия сдана не позже срока
+    sh:property [
+        sh:path :сдано ;
+        sh:lessThanOrEquals :срок ;
+        sh:message "6.6: рецензия сдана позже срока" ] ;
+    # 6.5. Ответ авторов записан. Предупреждение, приём данных не останавливает
+    sh:property [
+        sh:path :ответ_авторов ;
+        sh:hasValue true ;
+        sh:severity sh:Warning ;
+        sh:message "6.5: ответ авторов не записан" ] ;
+    # 6.2. Рецензент не из организации авторов. Сравнение по двум путям, в ядре не выражается
+    sh:sparql [
+        sh:message "6.2: рецензент из организации авторов" ;
+        sh:prefixes <http://example.org/review.owl> ;
+        sh:select """
+            PREFIX : <http://example.org/review.owl#>
+            SELECT $this WHERE {
+                $this :рецензент ?p .
+                ?p :из_организации ?o .
+                $this :на_статью ?s .
+                ?s :организация_авторов ?o .
+            }
+        """ ] .

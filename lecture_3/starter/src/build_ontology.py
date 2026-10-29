@@ -5,7 +5,7 @@
 Записывает kg/ontology.owl и kg/ontology.ttl, запускает машину вывода (нужна Java),
 печатает выведенный факт и разбор намеренного противоречия.
 """
-import contextlib, io, pathlib, warnings
+import contextlib, datetime, io, pathlib, warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 import rdflib
@@ -39,10 +39,19 @@ with onto:
     class балл(DataProperty, FunctionalProperty):
         domain = [Сдача]
         range = [int]
+    # версия 2 (задание 3): даты сдачи для проверки требования 3.2 формой SHACL
+    class срок(DataProperty, FunctionalProperty):
+        domain = [Сдача]
+        range = [datetime.date]
+    class сдано(DataProperty, FunctionalProperty):
+        domain = [Сдача]
+        range = [datetime.date]
 
     # 3. ограничения: фразы «у каждого X есть Y»
     Сдача.is_a.append(автор.some(Студент))             # у каждой сдачи есть автор
-    Требование.is_a.append(зависит_от.some(Раздел))    # каждое требование относится к разделу
+    Требование.is_a.append(зависит_от.some(Раздел))    # каждое требование относится к раздел
+    # версия 2 (задание 3): выводимый класс по вопросу «какие требования опираются на термин Срок сдачи»
+    class ТребованиеОСроке(Требование): pass
 
     # 4. индивиды: все записи корпуса
     TYPES = {"Раздел": Раздел, "Термин": Термин, "Требование": Требование}
@@ -60,6 +69,10 @@ with onto:
         s = Сдача(f"сдача_{r['студент']}_{r['задание']}")
         s.автор = st
         s.балл = int(r["балл"])
+        s.срок = datetime.date.fromisoformat(r["срок"])      # версия 2
+        s.сдано = datetime.date.fromisoformat(r["сдано"])
+    # версия 2: определение выводимого класса ставится после индивидов, чтобы T3 уже существовал
+    ТребованиеОСроке.equivalent_to = [Требование & зависит_от.value(pos["T3"])]
 
 # 5. сохранение до запуска машины вывода
 onto.save(file="kg/ontology.owl", format="rdfxml")
@@ -91,6 +104,8 @@ print("непротиворечива:", ok)
 print("R34 зависит_от, записано:", written)
 print("R34 зависит_от, после вывода:", inferred)
 print("выведено:", sorted(set(inferred) - set(written)))
+members = sorted(x.name for x in onto.ТребованиеОСроке.instances())
+print("ТребованиеОСроке после вывода:", members, "(записано: ни одного, R34 попал через цепочку R34 → R32 → T3)")
 
 # 7. намеренное противоречие на свежей копии: в поле «автор» записано требование
 world2 = World()

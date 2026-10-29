@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/zebra.owl"
+         xmlns="http://example.org/zebra.owl#">
+
+<owl:Ontology rdf:about="http://example.org/zebra.owl"/>
+
+<owl:ObjectProperty rdf:about="#живёт_в">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Человек"/>
+  <rdfs:range rdf:resource="#Дом"/>
+  <owl:inverseOf rdf:resource="#обитаем"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#имеет">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Человек"/>
+  <rdfs:range rdf:resource="#Животное"/>
+  <owl:inverseOf rdf:resource="#принадлежит"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#курит">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Человек"/>
+  <rdfs:range rdf:resource="#Сигареты"/>
+  <owl:inverseOf rdf:resource="#курится"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#пьёт">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Человек"/>
+  <rdfs:range rdf:resource="#Напиток"/>
+  <owl:inverseOf rdf:resource="#пьётся"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#имеет_цвет">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Дом"/>
+  <rdfs:range rdf:resource="#Цвет"/>
+  <owl:inverseOf rdf:resource="#окрашивает"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#находится_справа_от">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Дом"/>
+  <rdfs:range rdf:resource="#Дом"/>
+  <owl:inverseOf rdf:resource="#находится_слева_от"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#обитаем">
+  <owl:inverseOf rdf:resource="#живёт_в"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#принадлежит">
+  <owl:inverseOf rdf:resource="#имеет"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#курится">
+  <owl:inverseOf rdf:resource="#курит"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#пьётся">
+  <owl:inverseOf rdf:resource="#пьёт"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#окрашивает">
+  <owl:inverseOf rdf:resource="#имеет_цвет"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#находится_слева_от">
+  <owl:inverseOf rdf:resource="#находится_справа_от"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#Дом">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#дом1"/>
+        <rdf:Description rdf:about="#дом2"/>
+        <rdf:Description rdf:about="#дом3"/>
+        <rdf:Description rdf:about="#дом4"/>
+        <rdf:Description rdf:about="#дом5"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Животное">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#зебра"/>
+        <rdf:Description rdf:about="#лиса"/>
+        <rdf:Description rdf:about="#лошадь"/>
+        <rdf:Description rdf:about="#собака"/>
+        <rdf:Description rdf:about="#улитки"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Человек">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#англичанин"/>
+        <rdf:Description rdf:about="#испанец"/>
+        <rdf:Description rdf:about="#норвежец"/>
+        <rdf:Description rdf:about="#украинец"/>
+        <rdf:Description rdf:about="#японец"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#живёт_в"/>
+          <owl:someValuesFrom rdf:resource="#Дом"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет"/>
+          <owl:someValuesFrom rdf:resource="#Животное"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#курит"/>
+          <owl:someValuesFrom rdf:resource="#Сигареты"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#пьёт"/>
+          <owl:someValuesFrom rdf:resource="#Напиток"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Напиток">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#апельсиновый_сок"/>
+        <rdf:Description rdf:about="#вода"/>
+        <rdf:Description rdf:about="#кофе"/>
+        <rdf:Description rdf:about="#молоко"/>
+        <rdf:Description rdf:about="#чай"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Сигареты">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Chesterfield"/>
+        <rdf:Description rdf:about="#Kool"/>
+        <rdf:Description rdf:about="#LuckyStrike"/>
+        <rdf:Description rdf:about="#OldGold"/>
+        <rdf:Description rdf:about="#Parliament"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Цвет">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#жёлтый"/>
+        <rdf:Description rdf:about="#зелёный"/>
+        <rdf:Description rdf:about="#красный"/>
+        <rdf:Description rdf:about="#синий"/>
+        <rdf:Description rdf:about="#слоновая_кость"/>
+      </owl:oneOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#дом1">
+  <rdf:type rdf:resource="#Дом"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#находится_справа_от"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#дом2">
+  <rdf:type rdf:resource="#Дом"/>
+  <находится_справа_от rdf:resource="#дом1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#дом3">
+  <rdf:type rdf:resource="#Дом"/>
+  <находится_справа_от rdf:resource="#дом2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#дом4">
+  <rdf:type rdf:resource="#Дом"/>
+  <находится_справа_от rdf:resource="#дом3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#дом5">
+  <rdf:type rdf:resource="#Дом"/>
+  <находится_справа_от rdf:resource="#дом4"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#находится_слева_от"/>
+      <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#зебра">
+  <rdf:type rdf:resource="#Животное"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#лиса">
+  <rdf:type rdf:resource="#Животное"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#лошадь">
+  <rdf:type rdf:resource="#Животное"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#собака">
+  <rdf:type rdf:resource="#Животное"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#улитки">
+  <rdf:type rdf:resource="#Животное"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#англичанин">
+  <rdf:type rdf:resource="#Человек"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#живёт_в"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет_цвет"/>
+          <owl:hasValue rdf:resource="#красный"/>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#испанец">
+  <rdf:type rdf:resource="#Человек"/>
+  <имеет rdf:resource="#собака"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#норвежец">
+  <rdf:type rdf:resource="#Человек"/>
+  <живёт_в rdf:resource="#дом1"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#живёт_в"/>
+      <owl:someValuesFrom>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#находится_справа_от"/>
+              <owl:someValuesFrom>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#имеет_цвет"/>
+                  <owl:hasValue rdf:resource="#синий"/>
+                </owl:Restriction>
+              </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#находится_слева_от"/>
+              <owl:someValuesFrom>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#имеет_цвет"/>
+                  <owl:hasValue rdf:resource="#синий"/>
+                </owl:Restriction>
+              </owl:someValuesFrom>
+            </owl:Restriction>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#украинец">
+  <rdf:type rdf:resource="#Человек"/>
+  <пьёт rdf:resource="#чай"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#японец">
+  <rdf:type rdf:resource="#Человек"/>
+  <курит rdf:resource="#Parliament"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#апельсиновый_сок">
+  <rdf:type rdf:resource="#Напиток"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#вода">
+  <rdf:type rdf:resource="#Напиток"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#кофе">
+  <rdf:type rdf:resource="#Напиток"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#пьётся"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#живёт_в"/>
+          <owl:someValuesFrom>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#имеет_цвет"/>
+              <owl:hasValue rdf:resource="#зелёный"/>
+            </owl:Restriction>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#молоко">
+  <rdf:type rdf:resource="#Напиток"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#пьётся"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#живёт_в"/>
+          <owl:hasValue rdf:resource="#дом3"/>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#чай">
+  <rdf:type rdf:resource="#Напиток"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Chesterfield">
+  <rdf:type rdf:resource="#Сигареты"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#курится"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#живёт_в"/>
+          <owl:someValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#находится_справа_от"/>
+                  <owl:someValuesFrom>
+                    <owl:Restriction>
+                      <owl:onProperty rdf:resource="#обитаем"/>
+                      <owl:someValuesFrom>
+                        <owl:Restriction>
+                          <owl:onProperty rdf:resource="#имеет"/>
+                          <owl:hasValue rdf:resource="#лиса"/>
+                        </owl:Restriction>
+                      </owl:someValuesFrom>
+                    </owl:Restriction>
+                  </owl:someValuesFrom>
+                </owl:Restriction>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#находится_слева_от"/>
+                  <owl:someValuesFrom>
+                    <owl:Restriction>
+                      <owl:onProperty rdf:resource="#обитаем"/>
+                      <owl:someValuesFrom>
+                        <owl:Restriction>
+                          <owl:onProperty rdf:resource="#имеет"/>
+                          <owl:hasValue rdf:resource="#лиса"/>
+                        </owl:Restriction>
+                      </owl:someValuesFrom>
+                    </owl:Restriction>
+                  </owl:someValuesFrom>
+                </owl:Restriction>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Kool">
+  <rdf:type rdf:resource="#Сигареты"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#курится"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#живёт_в"/>
+          <owl:someValuesFrom>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#имеет_цвет"/>
+              <owl:hasValue rdf:resource="#жёлтый"/>
+            </owl:Restriction>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#курится"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#живёт_в"/>
+          <owl:someValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#находится_справа_от"/>
+                  <owl:someValuesFrom>
+                    <owl:Restriction>
+                      <owl:onProperty rdf:resource="#обитаем"/>
+                      <owl:someValuesFrom>
+                        <owl:Restriction>
+                          <owl:onProperty rdf:resource="#имеет"/>
+                          <owl:hasValue rdf:resource="#лошадь"/>
+                        </owl:Restriction>
+                      </owl:someValuesFrom>
+                    </owl:Restriction>
+                  </owl:someValuesFrom>
+                </owl:Restriction>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="#находится_слева_от"/>
+                  <owl:someValuesFrom>
+                    <owl:Restriction>
+                      <owl:onProperty rdf:resource="#обитаем"/>
+                      <owl:someValuesFrom>
+                        <owl:Restriction>
+                          <owl:onProperty rdf:resource="#имеет"/>
+                          <owl:hasValue rdf:resource="#лошадь"/>
+                        </owl:Restriction>
+                      </owl:someValuesFrom>
+                    </owl:Restriction>
+                  </owl:someValuesFrom>
+                </owl:Restriction>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LuckyStrike">
+  <rdf:type rdf:resource="#Сигареты"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#курится"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#пьёт"/>
+          <owl:hasValue rdf:resource="#апельсиновый_сок"/>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#OldGold">
+  <rdf:type rdf:resource="#Сигареты"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#курится"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#имеет"/>
+          <owl:hasValue rdf:resource="#улитки"/>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Parliament">
+  <rdf:type rdf:resource="#Сигареты"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#жёлтый">
+  <rdf:type rdf:resource="#Цвет"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#зелёный">
+  <rdf:type rdf:resource="#Цвет"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#окрашивает"/>
+      <owl:someValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#находится_справа_от"/>
+          <owl:someValuesFrom>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#имеет_цвет"/>
+              <owl:hasValue rdf:resource="#слоновая_кость"/>
+            </owl:Restriction>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#красный">
+  <rdf:type rdf:resource="#Цвет"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#синий">
+  <rdf:type rdf:resource="#Цвет"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#слоновая_кость">
+  <rdf:type rdf:resource="#Цвет"/>
+</owl:NamedIndividual>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#жёлтый"/>
+    <rdf:Description rdf:about="#зелёный"/>
+    <rdf:Description rdf:about="#красный"/>
+    <rdf:Description rdf:about="#синий"/>
+    <rdf:Description rdf:about="#слоновая_кость"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Chesterfield"/>
+    <rdf:Description rdf:about="#Kool"/>
+    <rdf:Description rdf:about="#LuckyStrike"/>
+    <rdf:Description rdf:about="#OldGold"/>
+    <rdf:Description rdf:about="#Parliament"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#апельсиновый_сок"/>
+    <rdf:Description rdf:about="#вода"/>
+    <rdf:Description rdf:about="#кофе"/>
+    <rdf:Description rdf:about="#молоко"/>
+    <rdf:Description rdf:about="#чай"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#англичанин"/>
+    <rdf:Description rdf:about="#испанец"/>
+    <rdf:Description rdf:about="#норвежец"/>
+    <rdf:Description rdf:about="#украинец"/>
+    <rdf:Description rdf:about="#японец"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#зебра"/>
+    <rdf:Description rdf:about="#лиса"/>
+    <rdf:Description rdf:about="#лошадь"/>
+    <rdf:Description rdf:about="#собака"/>
+    <rdf:Description rdf:about="#улитки"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#дом1"/>
+    <rdf:Description rdf:about="#дом2"/>
+    <rdf:Description rdf:about="#дом3"/>
+    <rdf:Description rdf:about="#дом4"/>
+    <rdf:Description rdf:about="#дом5"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Дом"/>
+    <rdf:Description rdf:about="#Животное"/>
+    <rdf:Description rdf:about="#Человек"/>
+    <rdf:Description rdf:about="#Напиток"/>
+    <rdf:Description rdf:about="#Сигареты"/>
+    <rdf:Description rdf:about="#Цвет"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>
