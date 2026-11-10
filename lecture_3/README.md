@@ -6,7 +6,6 @@
 
 | Что | Где |
 |---|---|
-| конспект занятия по слайдам: примеры 1–6, оба задания на маленькой области, вопросы для самопроверки | `КОНСПЕКТ_практики_1.md` |
 | примеры лекции 1: вопрос редактора, поиск по словам, граф зависимостей, правила над журналом, агент | `practice_1_editor.ipynb` |
 | примеры лекции 2: онтология, машина вывода, противоречие в данных | `practice_2_ontology.ipynb` |
 | задания 1, 2 и 3, выполненные на маленькой учебной области | `practice_3_tasks.ipynb` и папка `starter/` (задание 3: `kg/QUESTIONS.md`, `kg/shapes.ttl`, `kg/VALIDATION.md`, `scripts/check_l3.py`) |
@@ -88,6 +87,7 @@ python3 agent/ask.py --agent l1                                    # диало�
 | 1. Корпус, карта, вопросы | `kg/corpus.csv` на 30 и больше утверждений, `kg/MAP.md`, пять вопросов в `README.md`, `AGENTS.md`, `diary.md` | `../lecture_1/README.md`, раздел «Задание 1» | `python3 scripts/check_hw1.py`, 16 пунктов |
 | 2. Онтология | `kg/ontology.ttl`, `kg/ONTOLOGY.md`, `src/build_ontology.py`, словарь классов в `AGENTS.md` | `../lecture_2/README.md`, раздел «Задание 2» | `python3 scripts/check_l2.py`, 20 пунктов |
 | 3. Вопросы, выводимый класс, формы SHACL | `kg/QUESTIONS.md`, версия 2 онтологии, `kg/shapes.ttl`, `kg/VALIDATION.md` | `../lecture_4/README.md`, раздел «Задание 3» | `python3 scripts/check_l3.py`, 19 пунктов |
+| 4. Индекс, выборка, метрики | `src/search_bm25.py`, `kg/queries.csv`, `scripts/eval_search.py`, `kg/SEARCH.md` | `../lecture_5/README.md`, раздел «Задание 4» | `python3 scripts/check_l5.py`, 21 пункт |
 
 **С чего начать.** Скопировать папку `starter/` под своим именем, например `my_area/`: в ней уже есть нужная структура. В блокноте `practice_3_tasks.ipynb` оба задания пройдены на этой маленькой области, в `starter/README.md` четыре команды проверки. Скрипт `check_hw1.py` на стартовом наборе нарочно не зачитывает один пункт, объём корпуса из 12 строк при норме 30: так видно, как скрипт подсказывает, что доделать.
 

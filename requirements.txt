@@ -9,3 +9,6 @@ matplotlib
 nbformat
 notebook
 openai
+nltk                 # лекции 5–6: стеммер Snowball
+sentence-transformers  # лекция 6: модели векторизации, ставит torch
+faiss-cpu            # лекция 6: индексы ближайших соседей
